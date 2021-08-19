@@ -15,9 +15,7 @@ public class Routing {
 
     @Bean
     public RouterFunction<ServerResponse> route(HelloHandler helloHandler, HealthHandler healthHandler) {
-        var routeBuilder = RouterFunctions.route();
-        routeBuilder.route(RequestPredicates.GET("/hello").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), helloHandler::execute);
-        routeBuilder.route(RequestPredicates.GET("/health").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), healthHandler::execute);
-        return routeBuilder.build();
+        return RouterFunctions.route(RequestPredicates.GET("/hello").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), helloHandler::execute)
+                .andRoute(RequestPredicates.GET("/health").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), healthHandler::execute);
     }
 }
