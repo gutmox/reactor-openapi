@@ -1,5 +1,6 @@
 package com.gutmox.router;
 
+import com.gutmox.handlers.HealthHandler;
 import com.gutmox.handlers.HelloHandler;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
@@ -13,10 +14,10 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 public class Routing {
 
     @Bean
-    public RouterFunction<ServerResponse> route(HelloHandler helloHandler) {
+    public RouterFunction<ServerResponse> route(HelloHandler helloHandler, HealthHandler healthHandler) {
         var routeBuilder = RouterFunctions.route();
         routeBuilder.route(RequestPredicates.GET("/hello").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), helloHandler::execute);
-        routeBuilder.route(RequestPredicates.GET("/health").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), helloHandler::execute);
+        routeBuilder.route(RequestPredicates.GET("/health").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), healthHandler::execute);
         return routeBuilder.build();
     }
 }
