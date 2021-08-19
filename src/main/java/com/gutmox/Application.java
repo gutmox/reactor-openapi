@@ -1,13 +1,13 @@
-package com.gutmox.reactoropenapi;
+package com.gutmox;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReactorOpenapiApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReactorOpenapiApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

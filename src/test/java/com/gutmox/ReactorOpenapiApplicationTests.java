@@ -1,4 +1,4 @@
-package com.gutmox.reactoropenapi;
+package com.gutmox;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
