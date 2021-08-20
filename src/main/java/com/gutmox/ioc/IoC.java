@@ -8,15 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class IoC {
     @Autowired
-    private HelloHandler helloHandler;
+    public HelloHandler helloHandler;
     @Autowired
-    private HealthHandler healthHandler;
-
-    public HelloHandler getHelloHandler() {
-        return helloHandler;
-    }
-
-    public HealthHandler getHealthHandler() {
-        return healthHandler;
-    }
+    public HealthHandler healthHandler;
 }
